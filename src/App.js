@@ -1,21 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
 
-const number = 77777;
-const singr = {name: 'Dr. Mahfuzur rahaman', job: 'singre'};
-const singr2 = {name: 'Eva Rahman', job: 'singre'}
 
-const singerStyle = {
-  color: 'purple',
-  backgroundColor: 'white'
-}
+const singres = [
+  {name: 'Dr. Mahfuz', job: 'singre'},
+  {name: 'Eva Rahman', job: 'singre'},
+  {name: 'agun', job: 'singre'},
+  {name: 'shuvo', job: 'singre'}
+]
+
 
 function App() {
-  return (
+  const nayoks = ['Rubal', 'BappaRaz da', 'kuber', 'Jshim', 'salman sha', 'riaz', 'razzak'];
+  return (  
     <div className="App">
-     <Person></Person>
-     <Person></Person>
-     <Person></Person>
+      {
+        nayoks.map(nayok => <li>{nayok}</li>)
+      }
+      {/* {
+        nayoks.map(nayok => <Person name={nayok}></Person>)
+      } */}
+      {
+        singres.map(singr => <Person name={singr.name}></Person>)
+      }
+     {/* <Person name={nayoks[0]} nayka="moushumi"></Person>
+     <Person name={nayoks[1]} nayka="cheka"></Person>
+     <Person name={nayoks[2]} nayka="kopila"></Person> */}
      <h5>New Component. YAY</h5>
      <Friend></Friend>
      <Friend></Friend>
@@ -24,11 +34,11 @@ function App() {
   );
 }
 
-function Person(){
+function Person(props){
   return (
     <div className='person'>
-    <h1>Sakib AL Hasan</h1>
-    <p>Profession: Cricket</p>
+    <h1>{props.name}</h1>
+    <p>{props.nayka}</p>
   </div>
   )
 }
